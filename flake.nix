@@ -5,12 +5,17 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
+    zen-browser,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -179,6 +184,7 @@
 
                         # You can also split up your configuration and import pieces of it here:
                         # ./nvim.nix
+                        inputs.zen-browser.homeModules.beta
                       ];
 
                       nixpkgs = {
@@ -218,6 +224,14 @@
                         extraConfig.user = {
                           name = "chanceycode";
                           email = "139152739+chanceycode@users.noreply.github.com";
+                        };
+                      };
+                      programs.zen-browser = {
+                        enable = true;
+                        policies = {
+                          DisableAppUpdate = true;
+                          DisableTelemetry = true;
+                          # find more options here: https://mozilla.github.io/policy-templates/
                         };
                       };
 
