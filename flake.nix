@@ -9,6 +9,7 @@
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = {
@@ -210,6 +211,13 @@
                       home = {
                         username = "john";
                         homeDirectory = "/home/john";
+                      };
+
+                      wayland.windowManager.hyprland = {
+                        enable = true;
+                        # set the flake package
+                        package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+                        portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
                       };
 
                       # Add stuff for your user as you see fit:
