@@ -184,6 +184,7 @@
 
                         # You can also split up your configuration and import pieces of it here:
                         # ./nvim.nix
+                        inputs.zen-browser.homeModules.beta
                       ];
 
                       nixpkgs = {
@@ -223,6 +224,14 @@
                         extraConfig.user = {
                           name = "chanceycode";
                           email = "139152739+chanceycode@users.noreply.github.com";
+                        };
+                      };
+                      programs.zen-browser = {
+                        enable = true;
+                        policies = {
+                          DisableAppUpdate = true;
+                          DisableTelemetry = true;
+                          # find more options here: https://mozilla.github.io/policy-templates/
                         };
                       };
 
