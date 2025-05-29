@@ -587,6 +587,7 @@
                   wofi
                   kitty
                   proton-pass
+                  code-cursor
                 ];
               };
 
