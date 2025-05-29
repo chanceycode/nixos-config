@@ -217,6 +217,16 @@
                           allowUnfree = true;
                         };
                       };
+                      
+                      services.wpaperd = {
+                        enable = true;
+                        settings = {
+                          default = {
+                            duration = "30m";
+                            path = "/home/john/Wallpapers";
+                          };
+                        };
+                      };
 
                       # TODO: Set your username
                       home = {
@@ -297,6 +307,7 @@
                         # exec-once = $terminal
                         # exec-once = nm-applet &
                         # exec-once = waybar & hyprpaper & firefox
+                        exec-once = "wpaperd -d";
       
       
                         #############################
