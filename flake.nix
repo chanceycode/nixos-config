@@ -160,6 +160,16 @@
                 #media-session.enable = true;
               };
 
+              services.greetd = {
+                enable = true;
+                settings = {
+                  default_session = {
+                    command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+                    user = "greeter";
+                  };
+                };
+              };
+
               home-manager = {
                 extraSpecialArgs = { inherit inputs outputs; };
                 backupFileExtension = "backup";
