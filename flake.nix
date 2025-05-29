@@ -162,6 +162,7 @@
 
               home-manager = {
                 extraSpecialArgs = { inherit inputs outputs; };
+                backupFileExtension = "backup";
                 users = {
                   john = (
                     # This is your home-manager configuration file
