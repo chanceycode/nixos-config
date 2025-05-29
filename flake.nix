@@ -214,13 +214,6 @@
                         homeDirectory = "/home/john";
                       };
 
-                      wayland.windowManager.hyprland = {
-                        enable = true;
-                        # set the flake package
-                        package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-                        portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-                      };
-
                       # Add stuff for your user as you see fit:
                       # programs.neovim.enable = true;
                       # home.packages = with pkgs; [ steam ];
@@ -262,8 +255,13 @@
                 description = "john";
                 extraGroups = [ "networkmanager" "wheel" ];
                 packages = with pkgs; [
-                #  thunderbird
-                ];
+
+              programs.hyprland = {
+                enable = true;
+                # set the flake package
+                package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+                # make sure to also set the portal package, so that they are in sync
+                portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
               };
 
               # Install firefox.
