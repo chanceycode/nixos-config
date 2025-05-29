@@ -574,6 +574,11 @@
                 description = "john";
                 extraGroups = [ "networkmanager" "wheel" ];
                 packages = with pkgs; [
+                  wofi
+                  kitty
+                  proton-pass
+                ];
+              };
 
               programs.hyprland = {
                 enable = true;
