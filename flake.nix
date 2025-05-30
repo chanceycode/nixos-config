@@ -10,6 +10,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland";
+    treefmt-nix.url = "github:numtide/treefmt-nix";
   };
 
   outputs = {
