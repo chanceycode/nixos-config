@@ -259,7 +259,7 @@
 
                       programs.hyprlock = {
                         enable = true;
-                        # Fetched from https://github.com/hyprwm/hyprlock/blob/main/assets/example.conf
+                        # Based on https://github.com/hyprwm/hyprlock/blob/main/assets/example.conf
                         settings = {
                           # sample hyprlock.conf
                           # for more configuration options, refer https://wiki.hyprland.org/Hypr-Ecosystem/hyprlock
