@@ -35,7 +35,9 @@
     forAllSystems = nixpkgs.lib.genAttrs systems;
 
     # Eval the treefmt modules from ./treefmt.nix
-    treefmtEval = forAllSystems (pkgs: treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
+    treefmtEval = forAllSystems (system: 
+      treefmt-nix.lib.evalModule (nixpkgs.legacyPackages.${system}) ./treefmt.nix
+    );
   in {
     # for `nix fmt`
     formatter = forAllSystems (system: treefmtEval.${system}.config.build.wrapper);
