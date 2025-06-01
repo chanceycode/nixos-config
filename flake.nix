@@ -353,7 +353,7 @@
 
                             {
                               monitor = "";
-                              text = "$LAYOUT[en,ru]";
+                              text = "$LAYOUT[en]";
                               font_size = 24;
                               onclick = "hyprctl switchxkblayout all next";
 
