@@ -38,10 +38,10 @@
     treefmtEval = forAllSystems (pkgs: treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
   in {
     # for `nix fmt`
-    formatter = forAllSystems (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);
+    formatter = forAllSystems (system: treefmtEval.${system}.config.build.wrapper);
     # for `nix flake check`
-    checks = forAllSystems (pkgs: {
-      formatting = treefmtEval.${pkgs.system}.config.build.check self;
+    checks = forAllSystems (system: {
+      formatting = treefmtEval.${system}.config.build.check self;
     });
 
     # NixOS configuration entrypoint
