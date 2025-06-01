@@ -35,7 +35,6 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
-      # FIXME replace with your hostname
       starcraft = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
@@ -101,7 +100,7 @@
               boot.loader.efi.canTouchEfiVariables = true;
 
               boot.initrd.luks.devices."luks-e99ba237-093b-4b05-96f6-e0fb4d270859".device = "/dev/disk/by-uuid/e99ba237-093b-4b05-96f6-e0fb4d270859";
-              networking.hostName = "nixos"; # Define your hostname.
+              networking.hostName = "starcraft"; # Define your hostname.
               # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
               # Configure network proxy if necessary
